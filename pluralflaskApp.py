@@ -18,7 +18,7 @@ def index():
 
     word = request.args.get("word", "")
     if word:
-        plural = "Plural of " + word + " is " + plural_word(word)
+        plural = "Plural of the word " + word + " is " + plural_word(word)
     else:
         plural = ""
 
