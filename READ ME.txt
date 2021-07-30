@@ -1,0 +1,17 @@
+
+Make sure the python app file is called "app.py"
+
+SSH to the EC2 instance
+cd to /home/ec2-user/plural_Goldsmiths
+
+To create a virtual env, run:
+python3 -m venv env
+
+To activate the virtual env:
+source env/bin/activate
+
+then run: 
+flask run --host=0.0.0.0 --port=5000
+
+
+Then browse to the EC2 public IP (i.e., http://3.82.51.48:5000/), OR "http://ec2-3-82-51-48.compute-1.amazonaws.com:5000/"

@@ -42,4 +42,4 @@ def plural(word):
         return word + 's'
 
 
-print("Plural for " + word + " is " + plural(word))
+print("Plural for " + word + " is   " + plural(word))
