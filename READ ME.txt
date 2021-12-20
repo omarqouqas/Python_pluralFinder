@@ -11,7 +11,15 @@ To activate the virtual env:
 source env/bin/activate
 
 then run: 
-flask run --host=0.0.0.0 --port=5000
+flask run --host=0.0.0.0 --port=5555
 
 
-Then browse to the EC2 public IP (i.e., http://3.82.51.48:5000/), OR "http://ec2-3-82-51-48.compute-1.amazonaws.com:5000/"
+Then browse to the EC2 public IP (i.e., http://3.82.51.48:5555/), OR "http://ec2-3-82-51-48.compute-1.amazonaws.com:5555/"
+
+Can also check if the flask instance is working locally by ssh'ing to server and using a local instance of the lynx text browser to verify the port is responding. ie
+
+
+lynx localhost:<port_number>
+lynx localhost:5555
+
+https://stackoverflow.com/questions/17818485/flask-web-app-not-responding-to-external-requests-on-ec2
