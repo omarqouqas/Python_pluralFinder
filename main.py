@@ -10,6 +10,7 @@ def index():
     html_form = """
         <html><body>
             <h1> Enter a word in singular form and hit the button </h1>
+            <h2> Google App Engine is Awesome! </h2>
             <form action="" method="get">
             Singular word: <input type="text" name="word">
             <input type="submit" value="Plural of this word">
