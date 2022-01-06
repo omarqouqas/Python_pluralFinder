@@ -1,29 +1,7 @@
-# html form is withing this file, unlike "pluralWithHTMLtemplates"
 from flask import Flask
-from flask import request
+from flask import request, render_template
 
 app = Flask(__name__)
-
-
-@app.route("/")
-def index():
-    html_form = """
-        <html><body>
-            <h1> Enter a word in singular form and hit the button </h1>
-            <h2> Google App Engine is Awesome! </h2>
-            <form action="" method="get">
-            Singular word: <input type="text" name="word">
-            <input type="submit" value="Plural of this word">
-                </form>
-        </body></html>"""
-
-    word = request.args.get("word", "")
-    if word:
-        plural = "Plural of the word " + "'\'" + word + "'\'" + " is " + "'\'" + plural_word(word) + "'\'"
-    else:
-        plural = ""
-
-    return html_form + plural
 
 
 def plural_word(word):
@@ -68,6 +46,24 @@ def plural_word(word):
             return word + 's'
     except ValueError:
         return "Invalid input, try again!"
+
+
+@app.route("/", methods=['GET', 'POST'])
+def index():
+
+    word = None
+
+    if request.method == 'POST':
+        word = request.form['word']
+        plural_of_this_word = plural_word(word)
+        if plural_of_this_word:
+            plural_word(word)
+            word = {
+                'word': word,
+                'plural_of_this_word': plural_word(word)
+            }
+
+    return render_template('index.html', word=word, )
 
 
 if __name__ == "__main__":
